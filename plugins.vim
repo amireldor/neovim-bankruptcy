@@ -43,3 +43,5 @@ autocmd FileType clojure nnoremap <buffer> <localleader>rt :RunTests<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rl :Last<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rc :FireplaceConnect<cr>
 autocmd FileType clojure nnoremap <buffer> gd :normal [<c-d><cr>
+autocmd FileType clojure nnoremap <buffer> <localleader>nb :CljEval (cider.piggieback/cljs-repl (cljs.repl.nashorn/repl-env))<cr>
+autocmd FileType clojure nnoremap <buffer> <localleader>sc :CljEval (cider.piggieback/cljs-repl (figwheel-sidecar.repl-api/repl-env))<cr>

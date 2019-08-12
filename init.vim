@@ -1,5 +1,5 @@
 let mapleader=" "
-"let maplocalleader="\\"
+let maplocalleader=","
 imap jh <esc>
 map <F5> :tabnew ~/.config/nvim/init.vim<cr>
 map <Tab> <C-^>
