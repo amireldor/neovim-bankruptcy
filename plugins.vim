@@ -32,7 +32,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-repeat'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rls']
 
 let g:rainbow_active = 1 
 
@@ -43,6 +43,7 @@ nmap <leader><leader>r :LeaderfMru<cr>
 
 
 " move to vim-fireplace settings file
+autocmd FileType clojure nnoremap <buffer> <localleader>re :Eval<cr>
 autocmd FileType clojure vnoremap <buffer> <localleader>re :Eval<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rf :%Eval<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rr :Require<cr>
