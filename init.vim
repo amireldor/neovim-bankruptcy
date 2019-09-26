@@ -6,7 +6,7 @@ map <Tab> <C-^>
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
 nmap s <leader><leader>
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set wildmode=longest,list,full
 set mouse=a
 tnoremap <Esc> <C-\><C-n>
@@ -20,3 +20,5 @@ colorscheme jellybeans
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+
+au BufNew,BufEnter COMMIT_EDITMSG execute "silent! CocDisable"
