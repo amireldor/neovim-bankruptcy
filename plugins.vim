@@ -25,14 +25,16 @@ Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'raimondi/delimitmate'
 Plug 'dyng/ctrlsf.vim'
-"Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-repeat'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rls']
+let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rls', 'coc-python']
+set statusline^=%{coc#status()}
 
 let g:rainbow_active = 1 
 
@@ -54,3 +56,16 @@ autocmd FileType clojure nnoremap <buffer> <localleader>rc :FireplaceConnect<cr>
 "autocmd FileType clojure nnoremap <buffer> gd :normal [<c-d><cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>nb :CljEval (cider.piggieback/cljs-repl (cljs.repl.nashorn/repl-env))<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>sc :CljEval (cider.piggieback/cljs-repl (figwheel-sidecar.repl-api/repl-env))<cr>
+
+nmap <leader>3 :NERDTree<cr>
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
