@@ -26,4 +26,4 @@ colorscheme jellybeans
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
-au BufNew,BufEnter COMMIT_EDITMSG execute "silent! CocDisable"
+au BufNew,BufEnter COMMIT_EDITMSG execute "silent! CocDisable" | set tw=78
