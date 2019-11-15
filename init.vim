@@ -21,9 +21,15 @@ tnoremap jh <C-\><C-n>
 source ~/.config/nvim/plugins.vim
 autocmd BufEnter ~/.config/nvim/init.vim nmap <buffer> 2 :e ~/.config/nvim/plugins.vim<cr>
 
-colorscheme jellybeans
 
 au BufNewFile,BufRead *.ts setlocal filetype=typescript
 au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
 
 au BufNew,BufEnter COMMIT_EDITMSG execute "silent! CocDisable" | set tw=78
+
+" https://stackoverflow.com/questions/5698284/in-my-vimrc-how-can-i-check-for-the-existence-of-a-color-scheme
+try
+  colorscheme jellybeans
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
