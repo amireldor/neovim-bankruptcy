@@ -1,12 +1,18 @@
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  !curl -fLo  ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+if !has('win32')
+	if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+		!curl -fLo  ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+					\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+end
 
-
+if has('win32')
+call plug#begin('~/AppData/Local/share/nvim/plugged')
+else
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+end
+
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'nanotech/jellybeans.vim'
@@ -24,13 +30,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'raimondi/delimitmate'
-Plug 'dyng/ctrlsf.vim'
+"""Plug 'dyng/ctrlsf.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-repeat'
 Plug 'rust-lang/rust.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rls', 'coc-python']
@@ -69,3 +79,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" vim.fzf
+nmap <leader>f :FZF<cr>
+nmap <leader>r :History<cr>
+nmap <leader>b :Buffers<cr>
