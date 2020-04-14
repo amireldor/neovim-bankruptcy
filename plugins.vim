@@ -37,13 +37,13 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-repeat'
 Plug 'rust-lang/rust.vim'
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rls', 'coc-python']
+let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rust-analyzer', 'coc-python']
 set statusline^=%{coc#status()}
 
 let g:rainbow_active = 1 

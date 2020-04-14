@@ -14,7 +14,6 @@ set mouse=a
 set number
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-g> <C-\><C-n>
-tnoremap jh <C-\><C-n>
 
 if has('win32')
 	map <leader><leader>5 :e ~/AppData/Local/nvim/init.vim<cr>
