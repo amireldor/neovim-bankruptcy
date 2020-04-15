@@ -11,7 +11,7 @@ nmap s <leader><leader>
 set clipboard+=unnamedplus
 set wildmode=longest,list,full
 set mouse=a
-set number
+set relativenumber
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-g> <C-\><C-n>
 
