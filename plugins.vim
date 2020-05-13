@@ -40,7 +40,6 @@ Plug 'rust-lang/rust.vim'
 "Plug 'Shougo/deoplete.nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
 call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rust-analyzer', 'coc-python']
@@ -51,10 +50,8 @@ let g:rainbow_active = 1
 nmap gd <Plug>(coc-definition)
 nmap <F2> <Plug>(coc-rename)
 
-nmap <leader><leader>r :LeaderfMru<cr>
-
-
 " move to vim-fireplace settings file
+autocmd FileType clojure nmap <buffer> <localleader>ra cqc<esc>k<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>re :Eval<cr>
 autocmd FileType clojure vnoremap <buffer> <localleader>re :Eval<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rf :%Eval<cr>
@@ -63,7 +60,7 @@ autocmd FileType clojure nnoremap <buffer> <localleader>rR :Require!<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rt :RunTests<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rl :Last<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>rc :FireplaceConnect<cr>
-"autocmd FileType clojure nnoremap <buffer> gd :normal [<c-d><cr>
+autocmd FileType clojure nnoremap <buffer> gd :normal [<c-d><cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>nb :CljEval (cider.piggieback/cljs-repl (cljs.repl.nashorn/repl-env))<cr>
 autocmd FileType clojure nnoremap <buffer> <localleader>sc :CljEval (cider.piggieback/cljs-repl (figwheel-sidecar.repl-api/repl-env))<cr>
 
@@ -80,6 +77,20 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " vim.fzf
-nmap <leader>f :FZF<cr>
-nmap <leader>r :History<cr>
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+nmap <leader>f :Files<cr>
+nmap <leader>rr :History<cr>
 nmap <leader>b :Buffers<cr>
+

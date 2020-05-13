@@ -14,6 +14,8 @@ set mouse=a
 set relativenumber
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-g> <C-\><C-n>
+set nowritebackup
+set nowrap
 
 if has('win32')
 	map <leader><leader>5 :e ~/AppData/Local/nvim/init.vim<cr>
