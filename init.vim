@@ -7,6 +7,10 @@ imap jh <esc>
 map <Tab> <C-^>
 nmap <leader>w :w<cr>
 nmap <leader>q :q<cr>
+nmap <leader>j <c-w>j
+nmap <leader>k <c-w>k
+nmap <leader>h <c-w>h
+nmap <leader>l <c-w>l
 nmap s <leader><leader>
 set clipboard+=unnamedplus
 set wildmode=longest,list,full
@@ -16,7 +20,8 @@ tnoremap <Esc> <C-\><C-n>
 tnoremap <C-g> <C-\><C-n>
 set nowritebackup
 set nowrap
-
+set cursorline
+ 
 if has('win32')
 	map <leader><leader>5 :e ~/AppData/Local/nvim/init.vim<cr>
 	map <leader><leader><leader>5 :e ~/AppData/Local/nvim/plugins.vim<cr>
@@ -37,7 +42,7 @@ au BufNew,BufEnter COMMIT_EDITMSG execute "silent! CocDisable" | set tw=78
 
 " https://stackoverflow.com/questions/5698284/in-my-vimrc-how-can-i-check-for-the-existence-of-a-color-scheme
 try
-  colorscheme jellybeans
+  colorscheme nightfly
 catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry

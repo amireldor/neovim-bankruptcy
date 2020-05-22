@@ -40,6 +40,7 @@ Plug 'rust-lang/rust.vim'
 "Plug 'Shougo/deoplete.nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'bluz71/vim-nightfly-guicolors'
 call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-rust-analyzer', 'coc-python']
